@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Begena: Ethiopian Traditional Music Instrument Simulator</title>
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+<body data-theme="traditional" data-animations="true">
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="habesha-pattern-strip"></div>
+            <h1 class="animated-title">በገና <span class="en-title">Begena</span></h1>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-btn active" data-target="home-section">Home</button>
+            <button class="nav-btn" data-target="simulator-section">Simulator</button>
+            <button class="nav-btn" data-target="about-section">About</button>
+            <button class="nav-btn" data-target="help-section">Help</button>
+        </nav>
+        <div class="global-controls">
+            <button id="fullscreen-btn" aria-label="Toggle Fullscreen">⛶ Fullscreen</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="home-section" class="content-section active">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h2>The Harp of David</h2>
+                    <p class="hero-desc">Experience Ethiopia's ancient 10-string spiritual instrument. Used for centuries in meditative, poetic, and religious expressions, the Begena produces deep, resonant, and buzzing tones that soothe the soul.</p>
+                    <button class="cta-btn action-trigger" data-target="simulator-section">Start Playing Now</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="begena-illustration-container">
+                        <div class="begena-frame-mock">
+                            <div class="string-mock-lines">
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulator-section" class="content-section">
+            <div class="simulator-grid">
+                <aside class="control-panel glass-card">
+                    <div class="panel-section">
+                        <h3>Configuration</h3>
+                        <div class="control-group">
+                            <label for="theme-selector">Visual Theme</label>
+                            <select id="theme-selector">
+                                <option value="traditional" selected>Traditional Ethiopian</option>
+                                <option value="classic-wood">Classic Wood</option>
+                                <option value="dark-mode">Minimal Dark</option>
+                                <option value="golden">Imperial Golden</option>
+                                <option value="forest">Abyssinian Forest</option>
+                                <option value="night">Lalibela Night</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="play-mode">Play Mode</label>
+                            <select id="play-mode">
+                                <option value="free">Free Play</option>
+                                <option value="normal" selected>Normal Mode</option>
+                                <option value="performance">Performance</option>
+                                <option value="practice">Practice Mode</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>Audio Settings</h3>
+                        <div class="control-group">
+                            <label for="master-volume">Master Volume</label>
+                            <input type="range" id="master-volume" min="0" max="1" step="0.01" value="0.7">
+                        </div>
+                        <div class="control-group">
+                            <label for="reverb-level">Buzz & Reverb (Gizit)</label>
+                            <input type="range" id="reverb-level" min="0" max="1" step="0.05" value="0.5">
+                        </div>
+                        <div class="control-group">
+                            <label for="echo-delay">Echo Delay</label>
+                            <input type="range" id="echo-delay" min="0" max="1" step="0.05" value="0.3">
+                        </div>
+                        <div class="control-row">
+                            <div class="control-group half">
+                                <label for="eq-bass">Bass</label>
+                                <input type="range" id="eq-bass" min="-10" max="10" step="1" value="4">
+                            </div>
+                            <div class="control-group half">
+                                <label for="eq-treble">Treble</label>
+                                <input type="range" id="eq-treble" min="-10" max="10" step="1" value="-2">
+                            </div>
+                        </div>
+                        <button id="mute-btn" class="secondary-btn">Mute Audio</button>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>Tuning & Transposition</h3>
+                        <div class="control-row">
+                            <button id="tune-down" class="step-btn">Pitch -</button>
+                            <button id="tune-reset" class="step-btn">Reset</button>
+                            <button id="tune-up" class="step-btn">Pitch +</button>
+                        </div>
+                        <div class="control-group margin-top-sm">
+                            <label for="octave-shift">Octave Shift</label>
+                            <input type="range" id="octave-shift" min="-1" max="1" step="1" value="0" list="octave-ticks">
+                            <datalist id="octave-ticks">
+                                <option value="-1"></option>
+                                <option value="0"></option>
+                                <option value="1"></option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>Recorder</h3>
+                        <div class="recorder-controls">
+                            <button id="record-btn" class="rec-btn">● Record</button>
+                            <button id="stop-btn" class="rec-btn" disabled>■ Stop</button>
+                            <button id="playback-btn" class="rec-btn" disabled>▶ Playback</button>
+                            <button id="clear-rec-btn" class="rec-btn" disabled>Clear</button>
+                        </div>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>Generative Features</h3>
+                        <div class="metronome-controls">
+                            <button id="metronome-toggle" class="secondary-btn">Metronome OFF</button>
+                            <input type="number" id="metronome-tempo" min="40" max="200" value="72" aria-label="Tempo BPM"><span>BPM</span>
+                        </div>
+                        <button id="demo-btn" class="secondary-btn margin-top-sm">Auto Demo Mode</button>
+                        <button id="random-melody-btn" class="secondary-btn margin-top-sm">Generate Melody</button>
+                        <button id="screenshot-btn" class="secondary-btn margin-top-sm">Capture Setup</button>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>System Toggles</h3>
+                        <label class="toggle-container">
+                            <input type="checkbox" id="toggle-animations" checked>
+                            <span class="checkmark"></span> Enable Visual Vibrations
+                        </label>
+                    </div>
+                </aside>
+
+                <div class="instrument-container glass-card">
+                    <canvas id="visualizer-canvas" class="sound-visualizer"></canvas>
+                    <div class="begena-frame">
+                        <div class="top-bar-wood"></div>
+                        <div class="strings-container" id="strings-wrapper">
+                            </div>
+                        <div class="bottom-bridge-wood"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="content-section">
+            <div class="text-layout-wrapper glass-card">
+                <h2>About the Begena (በገና)</h2>
+                <hr>
+                <h3>History and Origin</h3>
+                <p>The Begena is one of the oldest stringed instruments in the world, widely recognized as an spiritual pillar of Ethiopian musical heritage. According to sacred tradition, it is linked directly to the biblical King David, leading to its designation as the "Harp of David." Historically used exclusively within religious contexts, Christian meditation, and imperial courts, it offers an aesthetic radically distinct from secular festive instruments like the Krar.</p>
+                
+                <h3>Structural Dynamics and Tuning</h3>
+                <p>Constructed typically with 10 heavy gut strings stretching across a large rectangular wooden resonator box, the Begena stands close to a meter tall. Uniquely, small pieces of leather or wood called <em>Gizit</em> are positioned between each string and the wide bridge. This creates an intentional, distinct buzzing hum upon plucking, serving as a continuous acoustic drone loaded with overtones.</p>
+                
+                <h3>Cultural Value</h3>
+                <p>Unlike instruments geared towards polyphonic complexity or high-tempo dancing rhythms, the Begena demands patient deceleration. Its traditional scales (primarily <em>Tizita Minor</em> or dedicated spiritual sub-modes) promote profound concentration, scriptural prayer rendering, and meditative isolation.</p>
+            </div>
+        </section>
+
+        <section id="help-section" class="content-section">
+            <div class="text-layout-wrapper glass-card">
+                <h2>User Guide & Control Matrix</h2>
+                <hr>
+                <h3>Playing Mechanisms</h3>
+                <p>You can seamlessly play the simulator using three concurrent input modalities:</p>
+                <ul>
+                    <li><strong>Mouse Interaction:</strong> Left-click or click-and-drag over the vertical strings inside the simulator pane.</li>
+                    <li><strong>Touch Screens:</strong> Swipe or tap directly over the physical location of the simulated strings.</li>
+                    <li><strong>Hardware Keyboard mapping:</strong> Use the dedicated upper row keys mapping perfectly from left to right.</li>
+                </ul>
+
+                <h3>Keyboard Control Map</h3>
+                <div class="table-container">
+                    <table class="control-table">
+                        <thead>
+                            <tr>
+                                <th>String No.</th>
+                                <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Key Map</th>
+                                <td><code>1</code></td><td><code>2</code></td><td><code>3</code></td><td><code>4</code></td><td><code>5</code></td><td><code>6</code></td><td><code>7</code></td><td><code>8</code></td><td><code>9</code></td><td><code>0</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Useful Performance Tips</h3>
+                <p>Turn up the <strong>Buzz & Reverb (Gizit)</strong> slider to enrich the unique traditional overtones. Engage the <strong>Auto Demo Mode</strong> to listen to standard meditative patterns while focusing on tracking the key inputs displayed dynamically above each vibrating string element.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2026 Begena Simulator Framework Pro. Ethiopian Cultural Preservation Web Initiative.</p>
+    </footer>
+
+    <script src="Js/script.js"></script>
+</body>
+</html>
