@@ -149,6 +149,8 @@ body {
     cursor: pointer;
 }
 
+
+
 /* LAYOUT CONTAINER ARMED FOR CONTENT MANAGEMENT */
 .main-content {
     flex: 1;
@@ -166,7 +168,8 @@ body {
     display: block;
 }
 
-/* HERO / HOME CONTAINER DESIGN */
+
+/* HERO -HOME CONTAINER DESIGN */
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -232,7 +235,8 @@ body {
     background: rgba(252, 209, 22, 0.35);
 }
 
-/* GLASSMORPHIC CONTAINERS & COMPONENT CARDS */
+
+/* GLASSMORPHIC CONTAINERS & COMPONENT-CARDS */
 .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -242,7 +246,8 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* SIMULATOR GRID INTERACTION DESIGN */
+
+/* SIMULATOR GRID-INTERACTION DESIGN */
 .simulator-grid {
     display: grid;
     grid-template-columns: 340px 1fr;
@@ -351,7 +356,8 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-/* BEGENA INSTRUMENT ELEMENT VIEW */
+
+/* BEGENA INSTRUMENT ELEMENT-VIEW */
 .instrument-container {
     position: relative;
     display: flex;
@@ -402,7 +408,8 @@ input[type="range"]::-webkit-slider-thumb {
     position: relative;
 }
 
-/* DYNAMIC INTERACTIVE STRING TARGETS */
+
+/* DYNAMIC INTERACTIVE STRING -ARGETS */
 .begena-string-track {
     flex: 1;
     display: flex;
@@ -424,7 +431,9 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0 0 8px var(--primary-gold);
 }
 
-/* STRING VIBRATION KEYFRAMES ACCORDING TO SYSTEM SPECS */
+
+
+/* STRING VIBRATION KEYFRAMES ACCORDING TO SYSTEM-SPECS */
 .begena-string-track.vibrating .string-element {
     animation: stringVibrate calc(0.12s * var(--anim-multiplier)) infinite alternate;
 }
@@ -463,6 +472,8 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: none;
     animation: rippleTrigger calc(0.6s * var(--anim-multiplier)) ease-out forwards;
 }
+
+
 
 /* GENERAL CONTENT PACKAGING */
 .text-layout-wrapper {
@@ -524,7 +535,8 @@ code {
     margin-top: auto;
 }
 
-/* CORE KEYFRAME SYSTEM ENGINE */
+
+/* CORE KEYFRAME SYSTEM_ENGINE */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
@@ -542,7 +554,11 @@ code {
     to { opacity: 1; box-shadow: 0 0 14px var(--primary-red); }
 }
 
-/* RESPONSIVE DESIGN MEDIA QUERIES */
+
+
+
+
+                                    /*---------------------------------     RESPONSIVE DESIGN MEDIA-QUERIES  ------------------ */
 @media (max-width: 1024px) {
     .simulator-grid {
         grid-template-columns: 1fr;
